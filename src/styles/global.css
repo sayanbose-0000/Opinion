@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --whiteVarCol: whitesmoke;
+  --blackVarCol: #171717;
+  --_mesh-gradient-blur: 0px;
+  --_mesh-gradient-blend-mode: screen;
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #6BAF8D;
+  --sb-size: 7px;
+
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+@layer {
+  .gradient {
+    background: radial-gradient(at 21% 93%, #032c17 0px, transparent 50%), radial-gradient(at 90% 63%, #032c2b 0px, transparent 50%), radial-gradient(at 87% 19%, #03182c 0px, transparent 50%), radial-gradient(at 68% 61%, #2c0318 0px, transparent 50%), radial-gradient(at 87% 1%, #2c1703 0px, transparent 50%) #000000;
+    mix-blend-mode: var(--_mesh-gradient-blend-mode);
+    filter: blur(var(--_mesh-gradient-blur));
+  }
+
+  .highlight {
+    background: linear-gradient(120deg, #2e3019 0%, #6e7426 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 90%;
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 1px;
+
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
