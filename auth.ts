@@ -9,7 +9,7 @@ import { z } from "zod";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [GitHub, Google],
 
-  callbacks: {
+  callbacks: { // this will perform after signIn funcn is called
     async signIn({ user }) {
       dbConnect();
 
@@ -44,6 +44,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         return false;
       }
-    },
+    }
   }
 });
